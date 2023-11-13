@@ -1,4 +1,4 @@
-package hagagroup.course.entities.pk;
+	package hagagroup.course.entities.pk;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -17,6 +17,8 @@ public class OrderItemPK implements Serializable {
 	@JoinColumn(name = "order_id")
 	private Order order;
 	
+	@ManyToOne
+	@JoinColumn(name = "product_id")
 	private Product product;
 	
 	public Order getOrder() {
@@ -36,6 +38,7 @@ public class OrderItemPK implements Serializable {
 	public int hashCode() {
 		return Objects.hash(order, product);
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -47,6 +50,7 @@ public class OrderItemPK implements Serializable {
 		OrderItemPK other = (OrderItemPK) obj;
 		return Objects.equals(order, other.order) && Objects.equals(product, other.product);
 	}
+	
 	
 	
 }
